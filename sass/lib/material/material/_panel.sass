@@ -1,0 +1,23 @@
+
+
+.low-opacized-bg-black
+  width: 100%
+  background-color: rgba(#102030, .7)
+
+.medium-opacized-bg-black
+  width: 100%
+  background-color: rgba(#d20000, .5)
+
+.high-opacized-bg-black
+  width: 100%
+  background-color: rgba(0, 0, 0, .3)
+
+
+$opaque_values: ("low": 0.7, "medium": 0.5, "high": 0.3)
+
+@each $color_name, $color in $colors
+  @each $opaque_value_name, $opaque_value in $opaque_values
+    @each $color_type, $color_value in $color
+      @if $color_name != "materialize-red"
+        .opaque-panel-#{$color_name}-#{$color_type}-#{$opaque_value_name}
+          background-color: rgba($color_value, $opaque_value)

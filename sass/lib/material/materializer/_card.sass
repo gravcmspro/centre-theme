@@ -1,0 +1,94 @@
+$base-price: 1rem
+
+.card-highlight
+  & .card-header
+    background-color: $secondary-color !important
+    border-top: 0.75rem solid darken($secondary-color, 20) !important
+
+@media only screen and (min-width: $medium-screen)
+  .card-highlight-scale
+    transform: scale(1.2, 1.1)
+    z-index: 100
+
+.card
+  text-align: left
+
+  & .card-content
+    width: 100%
+
+  & .card-content, & .card-action
+    z-index: 2
+
+  & .card-header, & .card-image
+    @extend .z-depth-1
+
+  & .card-header
+    border-top: 0.75rem solid $primary-color-dark
+    background-color: $primary-color
+    text-align: center
+    font-weight: bold
+    padding: 3.5rem 0.5rem
+    color: #fff
+
+    h3
+      color: #fff
+
+  & .card-simple
+    h3
+      font-size: 2.3rem
+
+  & .card-pricelist
+    & .title
+      font-size: $base-price + 0.75rem
+      margin-bottom: 0.15rem
+
+    & .price
+      font-size: $base-price + 1.3rem
+      margin-bottom: 0.15rem
+
+    & .subtitle
+      font-size: $base-price
+      font-weight: normal
+
+  // Card Sizes
+  &.xs, &.small, &.medium, &.large
+    position: relative
+
+    .card-image
+      max-height: 45%
+      overflow: hidden
+
+      @extend .scale-image
+
+    .card-image + .card-content
+      max-height: 55%
+
+    .card-content
+      max-height: 100%
+      overflow: hidden
+      z-index: 2
+
+    .card-action
+      position: absolute
+      bottom: 0
+      left: 0
+      right: 0
+      z-index: 2
+
+  &.xs
+    height: 250px
+
+  // Horizontal Cards
+  &.horizontal
+    &.xs
+      .card-image
+        height: 100%
+        max-height: none
+        overflow: visible
+
+      img
+        height: 100%
+
+  .card-stacked .card-content
+    overflow: hidden
+    max-height: 70%

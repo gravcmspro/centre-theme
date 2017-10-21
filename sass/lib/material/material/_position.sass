@@ -1,0 +1,29 @@
+.relative-position
+  position: relative
+
+.absolute-position
+  position: absolute
+  z-index: 2
+
+$distances: ("5": 5%, "10": 10%, "15": 15%)
+
+@each $distance_name, $distance in $distances
+  .absolute-position-bottom-right-#{$distance_name}
+    @extend .absolute-position
+    right: $distance
+    bottom: $distance
+
+  .absolute-position-bottom-left-#{$distance_name}
+    @extend .absolute-position
+    left: $distance
+    bottom: $distance
+
+  .absolute-position-top-right-#{$distance_name}
+    @extend .absolute-position
+    right: $distance
+    top: $distance
+
+  .absolute-position-top-left-#{$distance_name}
+    @extend .absolute-position
+    left: $distance
+    top: $distance

@@ -1,0 +1,45 @@
+=scale($scale, $duration)
+  +transition-property(all)
+  +transition-duration($duration)
+  transform: scale($scale)
+
+.image-cover
+  +background-size(cover)
+  background-position: center
+  background-repeat: no-repeat
+
+.scale-image
+  &:hover
+    +scale(1.05, 0.5s)
+
+.image-container
+  position: relative
+  display: -ms-flex
+  display: -webkit-flex
+  display: flex
+  overflow: hidden
+
+  & .bg-image
+    flex: 1
+    background-repeat: no-repeat
+
+  &:hover .bg-image-scale
+    +scale(1.05, 0.5s)
+
+.background-attached
+  background-attachment: fixed !important
+
+.contacts-image
+  width: 100vw
+  height: 100vh
+
+.fullscreen
+  height: 100%
+  width: 100%
+  max-width: 100%
+  max-height: 100%
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0

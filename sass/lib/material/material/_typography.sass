@@ -1,0 +1,71 @@
+h1, h2, h3, h4, h5, h6
+  letter-spacing: -0.15rem
+
+.h1-size
+  font-size: $h1-fontsize
+
+.h2-size
+  font-size: $h2-fontsize
+
+.h3-size
+  font-size: $h3-fontsize
+
+.h4-size
+  font-size: $h4-fontsize
+
+.h5-size
+  font-size: $h5-fontsize
+
+.h6-size
+  font-size: $h6-fontsize
+
+@media #{$medium-and-down}
+  $decrement: 0.70rem
+  h1, .h1-size
+    font-size: $h1-fontsize - $decrement
+
+  h2, .h2-size
+    font-size: $h2-fontsize - $decrement
+
+.center
+  text-align: center
+  justify-content: center
+
+.no-padding
+  padding: 0
+
+.no-margin
+  margin: 0
+
+.no-line-height
+  line-height: 0
+
+$sizes: ("tiny": (0.5rem, 0.5rem, 0.5rem), "small": (1rem, 1rem, 1rem), "medium": (1rem, 1rem, 2rem), "large": (1rem, 2rem, 4rem), "extra-large": (2rem, 4rem, 6rem), "huge": (2rem, 4rem, 8rem))
+$properties: ("padding": ("padding"), "padding-top": ("padding-top"), "padding-bottom": ("padding-bottom"), "padding-left": ("padding-left"), "padding-right": ("padding-right"), "padding-top-bottom": ("padding-top", "padding-bottom"), "padding-left-right": ("padding-left", "padding-right"),"margin": ("margin"), "margin-top": ("margin-top"), "margin-bottom": ("margin-bottom"), "margin-left": ("margin-left"), "margin-right": ("margin-right"), "margin-top-bottom": ("margin-top", "margin-bottom"), "margin-left-right": ("margin-left", "margin-right"))
+
+@each $property_name, $property_values in $properties
+  @each $size_name, $size in $sizes
+
+    .#{$property_name}-#{$size_name}
+      @each $property in $property_values
+        #{$property}: nth($size, 1) !important
+
+        @media #{$medium-and-up}
+          #{$property}: nth($size, 2) !important
+
+        @media #{$large-and-up}
+          #{$property}: nth($size, 3) !important
+
+    .s-#{$property_name}-#{$size_name}
+      @each $property in $property_values
+        #{$property}: nth($size, 3) !important
+
+    @media #{$medium-and-up}
+      .m-#{$property_name}-#{$size_name}
+        @each $property in $property_values
+          #{$property}: nth($size, 3) !important
+
+    @media #{$large-and-up}
+      .l-#{$property_name}-#{$size_name}
+        @each $property in $property_values
+          #{$property}: nth($size, 3) !important

@@ -1,0 +1,108 @@
+$border-radius-lg: 0.3rem !default;
+$jumbotron-padding: 2rem !default;
+$jumbotron-image-color: #000 !default;
+
+
+.jumbotron {
+    padding: $jumbotron-padding ($jumbotron-padding / 2);
+    background-color: $jumbotron-bg;
+    @include border-radius($border-radius-lg);
+    @media only screen and (min-width: $medium-screen) {
+        p {
+            font-size: 1.4rem;
+        }
+    }
+    @media only screen and (max-width: $medium-screen) {
+        h1, h2, h3, h4, h5, h6 {
+            font-size: $h2-fontsize;
+        }
+        @media #{$medium-and-down} {
+            h1, h2, h3, h4, h5, h6 {
+                font-size: $h3-fontsize;
+            }
+        }
+        @media #{$small-and-down} {
+            h1, h2, h3, h4, h5, h6 {
+                font-size: $h4-fontsize;
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.jumbotron-image {
+    @extend .image-cover;
+    color: $jumbotron-image-color;
+}
+
+.jumbotron-height {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+}
+
+.jumbotron-height-full {
+    height: 100vh;
+}
+
+.jumbotron-height-three-quarters {
+    height: 100vh;
+
+    @media #{$large-and-up} {
+        height: 75vh;
+    }
+}
+
+.jumbotron-height-half {
+    height: 100vh;
+
+    @media #{$large-and-up} {
+        height: 50vh;
+    }
+}
+
+.jumbotron-scrolldown {
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.8;
+
+    i {
+        font-size: 6rem;
+        color: $scrolldown-color;
+    }
+    @media screen and (max-width: $medium-screen) {
+        i {
+            font-size: 4rem;
+            margin: 0;
+            padding: 0;
+        }
+    }
+}
+
+.jumbotron-hr {
+    border-top-color: darken($jumbotron-bg, 10%);
+}
+
+.jumbotron-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    @include border-radius(0);
+}
+
+.jumbotron-container {
+    position: relative;
+
+    & .jumbotron-content-container {
+        width: 100%;
+        z-index: 3;
+    }
+}
+
+.blurred-image {
+    opacity: 0
+}

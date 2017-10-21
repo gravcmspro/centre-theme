@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }}{% endif %}</title>
+    {% include 'partials/metadata.html.twig' %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="{{ url('theme://images/favicon.png', true) }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% do assets.addCss('theme://css/material/material-' ~ config.site.material.css_theme ~ '.css',-100, true, 'header') %}
+    {% do assets.addCss('theme://css/custom.css',-100, true, 'header') %}
+    {{ assets.css('header') }}
+    {{ assets.js('header') }}
+    {% include 'partials/_header_scripts.html.twig' %}
+{% endblock head%}
+</head>
+  <body{% if page.header.body_classes is defined and page.header.body_classes is not null %} class="{{ page.header.body_classes }}"{% endif %}>
+
+    {% block content %}
+    {% endblock %}
+
+    {% include 'partials/_body_scripts.html.twig' %}
+
+    {% include "partials/_material_assets.html.twig" %}
+    {% block stylesheets %}
+        {% do assets.addCss('theme://css/custom.css',-100) %}
+        {% do assets.addCss('theme://css/top.css',-100) %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.add('jquery',101) %}
+    {% endblock %}
+    {{ assets.js() }}
+  </body>
+</html>

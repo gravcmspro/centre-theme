@@ -1,0 +1,54 @@
+@import "compass/css3/transition"
+
+.navbar-fixed
+  position: fixed
+
+nav
+
+  background-color: $navbar-color
+
+  &.transparent
+    background-color: transparent
+    color: $off-black !important
+
+    @extend .z-depth-0
+
+    li.active
+      background-color: transparent
+
+    .navbar-top-content
+      background-color: transparent !important
+
+
+  .brand-logo
+    padding-left: 1rem
+
+  ul:last-child
+    padding-right: 1rem
+
+  &.scrolled
+    opacity: 0.9
+    +transition-property(all)
+    +transition-duration(0.5s)
+    +transition-timing-function(ease)
+
+.nav-content
+  line-height: normal
+
+  p
+    line-height: normal
+    margin: 0
+
+  i
+    height: auto
+
+.navbar-top-content
+  background-color: $navbar-top-content-color
+  color: $navbar-top-content-font-color
+  border-bottom: 1px solid rgba(0,0,0,.3)
+
+  p
+    font-size: 1.1rem
+
+  li
+    margin-left: 0.75rem

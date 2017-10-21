@@ -1,0 +1,31 @@
+table
+  &.condensed
+    td, th
+      padding: 5px
+
+.bordered-table
+  table
+    @extend table.bordered
+
+.striped-table
+  table
+    @extend table.striped
+
+.highlighted-table
+  table
+    @extend table.highlight
+
+.centered-table
+  table
+    @extend table.centered
+
+.responsive-table
+  table
+    @extend table.responsive-table
+
+.table-header-highlighted
+  table th
+    font-size: 1.2rem
+    border-bottom: 2px solid $primary-color
+    text-align: center !important
+    text-transform: uppercase

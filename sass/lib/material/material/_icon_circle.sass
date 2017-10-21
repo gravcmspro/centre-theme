@@ -1,0 +1,50 @@
+.icon-circle
+    @extend .circle
+    text-align: center
+
+    i
+        color: $primary-color
+
+    &.icon-circle-colored
+        background-color: $primary-color
+
+        i
+            color: #fff
+
+    &.icon-circle-bordered
+        border: 0.25rem solid $primary-color
+
+    &.icon-circle-center
+        margin: 0 auto
+
+    &.icon-circle-tiny
+        width: 2rem
+        height: 2rem
+        padding: 0.2rem 0
+
+        i
+            @extend .tiny
+
+    &.icon-circle-small
+        width: 4rem
+        height: 4rem
+        padding: 0.75rem 0
+
+        i
+            @extend .small
+
+    &.icon-circle-medium
+        width: 7rem
+        height: 7rem
+        padding: 1.3rem 0
+
+        i
+            @extend .medium
+
+    &.icon-circle-large
+        width: 10rem
+        height: 10rem
+        padding: 1.6rem 0
+
+        i
+            @extend .large

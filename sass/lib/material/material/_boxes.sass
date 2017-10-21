@@ -1,0 +1,66 @@
+
+$sizes: ("box-ultra-tiny": (10rem, 15rem, 15rem), "box-tiny": (10rem, 15rem, 20rem), "box-small": (15rem, 20rem, 25rem), "box-medium": (20rem, 25rem, 30rem), "box-large": (25rem, 30rem, 35rem), "box-huge": (30rem, 35rem, 40rem))
+@each $size_name, $size in $sizes
+
+  .#{$size_name}
+    min-height: nth($size, 1) !important
+
+    @media #{$medium-and-up}
+      min-height: nth($size, 2) !important
+
+    @media #{$large-and-up}
+      min-height: nth($size, 3) !important
+
+  .s-#{$size_name}
+    min-height: nth($size, 3) !important
+
+  @media #{$small-and-down}
+    .s-#{$size_name}-only
+      min-height: nth($size, 3) !important
+
+  @media #{$medium-and-up}
+    .m-#{$size_name}
+      min-height: nth($size, 3) !important
+
+  @media #{$medium-only}
+    .m-#{$size_name}-only
+      min-height: nth($size, 3) !important
+
+  @media #{$large-and-up}
+    .l-#{$size_name}
+      min-height: nth($size, 3) !important
+
+.box-bordered
+  border: 1px solid color("grey", "lighten-2")
+  background-color: #fff
+
+.promo-box-bordered
+  border: 0.6rem solid #fff
+  text-transform: uppercase
+
+  h1, h2, h3, h4, h5, h6
+    font-weight: bold
+
+.box-bg-primary
+  background-color: $primary-color
+
+.box-bg-primary-light
+  background-color: $primary-color-light
+
+.box-bg-primary-dark
+  background-color: $primary-color-dark
+
+.box-bg-secondary
+  background-color: $secondary-color
+
+
+@media only screen and (max-width: $medium-screen)
+
+  .promo-box-bordered
+    h4
+      font-size: 2rem !important
+
+.promo-box
+  height: 17rem
+  max-height: 17rem
+  line-height: 0.25rem

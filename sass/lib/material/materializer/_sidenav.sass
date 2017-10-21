@@ -1,0 +1,26 @@
+.opener
+  position: fixed
+  top: 50%
+  transform: translateY(-50%)
+  z-index: 150
+  background-color: color("grey", "base")
+  padding: 0
+  @extend .z-depth-1
+
+  &:hover
+    @extend .z-depth-2
+
+  i
+    color: #fff
+    font-size: 3rem
+
+  @media #{$large-and-up}
+    padding: 1rem 0.5rem
+
+.side-nav
+  & .userView
+    color: #fff
+    // JUST A WORKAROUND
+    min-height: 140px
+    h1, h2, h3, h4, h5, h6
+      color: #fff
